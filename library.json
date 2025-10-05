@@ -1,0 +1,27 @@
+{
+  "name": "sen6x-core",
+  "version": "1.0.0",
+  "description": "Sensirion SEN6x I2C core driver with CRC and command helpers.",
+  "keywords": ["sensirion", "sen6x", "air-quality", "i2c", "sensor"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arvindsa/sen6x-core"
+  },
+  "license": "MIT",
+  "authors": [
+    { "name": "Arvind S.A.", "maintainer": true }
+  ],
+  "frameworks": "arduino",
+  "platforms": ["espressif32", "ststm32", "nordicnrf52"],
+  "headers": ["sen6x_core.h"],
+  "dependencies": [
+    { "name": "Wire" }              
+  ],
+  "build": {
+    "includeDir": "include",
+    "srcDir": "src"
+  },
+  "examples": [
+    "examples/*/*.ino"
+  ]
+}

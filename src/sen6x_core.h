@@ -3,7 +3,8 @@
  * @brief Core definitions and API for Sensirion SEN6x environmental sensor family.
  *
  * Provides type definitions, constants, and class declarations for communicating
- * with SEN6x devices (SEN63C / SEN65 / SEN66 / SEN68) over I²C.
+ * with SEN6x devices (SEN63C / SEN65 / SEN66 / SEN68) over I²C. SEN60 may not be supported as it
+ * hasa differnet I2C address and may not play well with the meshtastic system
  *
  * Based on: Sensirion SEN6x Datasheet – Version 0.91 (August 2025)
  *           https://sensirion.com/media/documents/FAFC548D/68C12881/Sensirion_Datasheet_SEN6x.pdf
@@ -15,6 +16,13 @@
  *
  * @author  Arvind S.A.
  * @date    2025-10-05
+ */
+
+/*
+ * TODO:
+ * - Move all commands to central Definition
+ * - Central tracking of when next command can be made
+ * - Family based splitting. Currently. Keep the API same . For
  */
 
 #pragma once
