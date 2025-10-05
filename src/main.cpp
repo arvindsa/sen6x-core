@@ -167,6 +167,9 @@ void loop()
       sen6x::Status stopStatus = aq.stopMeasurement();
       Serial.printf("sen6x.stopMeasurement() -> %s\n", statusName(stopStatus));
       stopped = true;
+
+      // sen6x::Status fanCleanStatus = aq.startFanCleaning();
+      // Serial.printf("sen6x.startFanCleaning() -> %s\n", statusName(fanCleanStatus));
     }
     return;
   }

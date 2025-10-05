@@ -271,6 +271,24 @@ namespace sen6x
          */
         bool isDataReadyByTime() const; ///< Returns true if current time >= dataReadyBy_.
 
+        /**
+         * @brief Trigger fan-cleaning cycle (max speed for ~10 s).
+         *
+         * Sends command 0x5607 (“Start Fan Cleaning”). The device must be in Idle.
+         * After issuing this command, wait at least 10 seconds before starting
+         * a new measurement.
+         *
+         * Applies to: SEN63C, SEN65, SEN66, SEN68
+         * Available in: Idle mode
+         * Execution time: ~20 ms
+         * TX/RX: none
+         *
+         * @return Status::OK on success,
+         *         Status::NOT_INITIALIZED if begin() wasn’t called,
+         *         or an I²C error from sendCommand().
+         */
+        Status startFanCleaning();
+
     private:
         TwoWire &wire_;
         uint8_t address_;

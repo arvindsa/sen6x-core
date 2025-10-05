@@ -550,4 +550,24 @@ namespace sen6x
         return Status::OK;
     }
 
+    Status Core::startFanCleaning()
+    {
+        if (!initialized_)
+            return Status::NOT_INITIALIZED;
+
+        constexpr uint16_t CMD_START_FAN_CLEAN = 0x5607;
+        Status s = sendCommand(CMD_START_FAN_CLEAN);
+        if (s != Status::OK)
+            return s;
+
+        if (dbg_)
+            dbg_->println("[sen6x_core] Fan cleaning started (run ~10s)");
+
+        delay(1100);
+
+        if (dbg_)
+            dbg_->println("[sen6x_core] Fan cleaning completed (run ~10s)");
+        return Status::OK;
+    }
+
 } // namespace sen6x
